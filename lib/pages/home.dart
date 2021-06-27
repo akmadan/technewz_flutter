@@ -7,7 +7,6 @@ import 'package:technewz/utils/colors.dart';
 import 'package:technewz/components/components.dart';
 import 'package:technewz/utils/constants.dart';
 
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -28,7 +27,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
-        backgroundColor: AppColors.bgColor,
+        backgroundColor: AppColors.black,
         appBar: appbar(),
         body: Column(
           children: [
@@ -44,6 +43,7 @@ class _HomeState extends State<Home> {
                             itemCount: snapshot.data!.length,
                             itemBuilder: (context, index) {
                               return NewsBox(
+                                url: snapshot.data![index]['url'],
                                 imageurl:
                                     snapshot.data![index]['urlToImage'] != null
                                         ? snapshot.data![index]['urlToImage']
@@ -60,7 +60,9 @@ class _HomeState extends State<Home> {
                       }
 
                       // By default, show a loading spinner.
-                      return Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator(
+                        color: AppColors.primary,
+                      ));
                     },
                   )),
             ),

@@ -7,7 +7,7 @@ import 'package:technewz/utils/key.dart';
 Future<List> fetchnews() async {
   final response = await http.get(
     Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=' +
+        'https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=100&apiKey=' +
             Key.key +
             '&q=' +
             SearchBar.searchcontroller.text),

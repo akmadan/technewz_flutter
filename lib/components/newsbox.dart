@@ -7,13 +7,14 @@ import 'bottomsheet.dart';
 import 'components.dart';
 
 class NewsBox extends StatelessWidget {
-  final String imageurl, title, time, description;
+  final String imageurl, title, time, description, url;
   const NewsBox(
       {Key? key,
       required this.imageurl,
       required this.title,
       required this.time,
-      required this.description})
+      required this.description,
+      required this.url})
       : super(key: key);
 
   @override
@@ -24,7 +25,7 @@ class NewsBox extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            showMyBottomSheet(context, title, description, imageurl);
+            showMyBottomSheet(context, title, description, imageurl, url);
           },
           child: Container(
             padding: EdgeInsets.all(20),
@@ -44,7 +45,8 @@ class NewsBox extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.yellow),
                   ),
-                  placeholder: (context, url) => CircularProgressIndicator(),
+                  placeholder: (context, url) =>
+                      CircularProgressIndicator(color: AppColors.primary),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
                 SizedBox(width: 8),
