@@ -27,6 +27,7 @@ dependencies:
   http:
   cached_network_image:
   url_launcher:
+  
 
 
   # The following adds the Cupertino Icons font to your application.
