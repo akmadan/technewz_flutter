@@ -4,7 +4,6 @@ import 'package:technewz/components/appbar.dart';
 import 'package:technewz/components/newsbox.dart';
 import 'package:technewz/components/searchbar.dart';
 import 'package:technewz/utils/colors.dart';
-import 'package:technewz/components/components.dart';
 import 'package:technewz/utils/constants.dart';
 
 class Home extends StatefulWidget {
@@ -60,7 +59,8 @@ class _HomeState extends State<Home> {
                       }
 
                       // By default, show a loading spinner.
-                      return Center(child: CircularProgressIndicator(
+                      return Center(
+                          child: CircularProgressIndicator(
                         color: AppColors.primary,
                       ));
                     },

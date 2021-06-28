@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:technewz/backend/functions.dart';
 
 class Location extends StatefulWidget {
-  static String location = 'us';
   const Location({Key? key}) : super(key: key);
+  static String location = '';
 
   @override
   _LocationState createState() => _LocationState();
@@ -10,25 +11,33 @@ class Location extends StatefulWidget {
 
 class _LocationState extends State<Location> {
   List<String> locationcodes = ['us', 'in', 'de', 'jp', 'gb', 'kr', 'cn'];
+  List<String> countries = [
+    'USA',
+    'India',
+    'Germany',
+    'Japan',
+    'UK',
+    'South Korea',
+    'China'
+  ];
   String dropdownValue = 'USA';
   @override
   Widget build(BuildContext context) {
     return Container(
       child: DropdownButton<String>(
         value: dropdownValue,
-        icon: const Icon(Icons.arrow_downward),
-        iconSize: 24,
-        elevation: 16,
-        style: const TextStyle(color: Colors.deepPurple),
-        underline: Container(
-          height: 2,
-          color: Colors.deepPurpleAccent,
-        ),
+        style: const TextStyle(color: Colors.white),
+        isExpanded: false,
+        underline: Container(),
         onChanged: (String? newValue) {
           setState(() {
-            dropdownValue = newValue!;
+            Location.location = locationcodes[countries.indexOf(newValue!)];
+            dropdownValue = newValue;
           });
-        },
+          // fetchnews();
+          print(Location.location);
+          fetchnews();
+          },
         items: <String>[
           'USA',
           'India',

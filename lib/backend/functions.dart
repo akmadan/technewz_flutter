@@ -15,7 +15,7 @@ Future<List> fetchnews() async {
         SearchBar.searchcontroller.text),
   );
   Map result = jsonDecode(response.body);
-  print(result['articles']);
+  print('Fetched');
 
   return (result['articles']);
 }
